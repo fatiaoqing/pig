@@ -46,5 +46,22 @@
 			<groupId>com.pig4cloud</groupId>
 			<artifactId>pig-common-feign</artifactId>
 		</dependency>
-	</dependencies>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>easyexcel</artifactId>
+            <version>2.2.6</version>
+            <scope>compile</scope>
+        </dependency>
+		<!--easyexcel 依赖-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-json</artifactId>
+		</dependency>
+		<!--sl4j-->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.7.25</version>
+		</dependency>
+    </dependencies>
 </project>

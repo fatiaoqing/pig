@@ -1,0 +1,6 @@
+#配置说明
+fdfs:
+  connect-timeout: 2000
+  so-timeout: 3000
+  tracker-list:
+    - 192.168.1.204:22122

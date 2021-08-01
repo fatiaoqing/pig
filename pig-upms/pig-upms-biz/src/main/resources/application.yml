@@ -1,0 +1,36 @@
+security:
+  oauth2:
+    client:
+      client-id: ENC(imENTO7M8bLO38LFSIxnzw==)
+      client-secret: ENC(i3cDFhs26sa2Ucrfz2hnQw==)
+      scope: server
+
+# 数据源
+spring:
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: ${BOSS_MYSQL_USER:root}
+    #password: ${BOSS_MYSQL_PWD:7rpj7XTFA5w2gplO}
+    password: ${BOSS_MYSQL_PWD:monkey1024}
+    #url: jdbc:mysql://${BOSS_MYSQL_HOST:192.168.1.204}:${BOSS_MYSQL_PORT:3306}/${BOSS_MYSQL_DB:m3_test}?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowMultiQueries=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://${BOSS_MYSQL_HOST:127.0.0.1}:${BOSS_MYSQL_PORT:3306}/${BOSS_MYSQL_DB:v2_test}?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowMultiQueries=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai
+#  cloud:
+#    sentinel:
+#      datasource:
+#          ds1.nacos:
+#            username: nacos
+#            password: nacos
+#            #serverAddr: 192.168.1.247:8848
+#            serverAddr: 127.0.0.1:8848
+#            dataId: test-flow
+#            ruleType: flow
+#      transport:
+#        port: 8720
+
+# 设置全局logger日志输出级别
+logging:
+  level:
+    root: info
+
+debug: true

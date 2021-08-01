@@ -70,7 +70,18 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-undertow</artifactId>
 		</dependency>
-	</dependencies>
+        <dependency>
+            <groupId>commons-lang</groupId>
+            <artifactId>commons-lang</artifactId>
+            <version>2.6</version>
+            <scope>compile</scope>
+        </dependency>
+		<dependency>
+			<groupId>com.pig4cloud.excel</groupId>
+			<artifactId>excel-spring-boot-starter</artifactId>
+			<version>0.4.1</version>
+		</dependency>
+    </dependencies>
 
 	<build>
 		<plugins>
