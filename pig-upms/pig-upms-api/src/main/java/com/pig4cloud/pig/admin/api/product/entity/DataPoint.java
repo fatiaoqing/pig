@@ -1,13 +1,16 @@
-package com.pig4cloud.pig.admin.api.product.entity;
+package com.netvox.sh.boss.api.product.entity;
 
-import com.baomidou.mybatisplus.annotation.*;
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,15 +26,13 @@ import java.util.List;
 @ApiModel(value = "功能列表")
 @EqualsAndHashCode(callSuper = true)
 @TableName("IOT_DATAPOINT")
-public class DataPoint extends Model<DataPoint> implements Serializable {
-
-	private static final long serialVersionUID = 1L;
-
+public class DataPoint extends Model<DataPoint> {
     /**
      *功能点id
      */
-    @TableId(value = "id", type = IdType.AUTO)
+    @TableId(value = "id", type = IdType.ASSIGN_ID)
     @ApiModelProperty(value = "功能点id")
+    @JsonSerialize(using= ToStringSerializer.class)
     private Long id;
 
     /**
@@ -85,15 +86,13 @@ public class DataPoint extends Model<DataPoint> implements Serializable {
     /**
      * 创建时间
      */
-//    @ApiModelProperty(value = "创建时间")
-//	@TableField(value = "CREATE_TIME", fill = FieldFill.INSERT)
-//    private LocalDateTime createTime;
-//
-//    /**
-//     * 更新时间
-//     */
-//    @ApiModelProperty(value = "更新时间")
-//	@TableField(value = "UPDATE_TIME", fill = FieldFill.UPDATE)
-//    private LocalDateTime updateTime;
+    @ApiModelProperty(value = "创建时间")
+    private LocalDateTime createTime;
+
+    /**
+     * 更新时间
+     */
+    @ApiModelProperty(value = "更新时间")
+    private LocalDateTime updateTime;
 
 }

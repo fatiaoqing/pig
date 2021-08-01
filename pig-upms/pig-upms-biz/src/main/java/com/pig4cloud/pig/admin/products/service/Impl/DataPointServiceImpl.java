@@ -1,9 +1,9 @@
-package com.pig4cloud.pig.admin.products.service.Impl;
+package com.netvox.sh.boss.products.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.pig4cloud.pig.admin.api.product.entity.DataPoint;
-import com.pig4cloud.pig.admin.products.mapper.DataPointMapper;
-import com.pig4cloud.pig.admin.products.service.DataPointService;
+import com.netvox.sh.boss.api.product.entity.DataPoint;
+import com.netvox.sh.boss.products.mapper.DataPointMapper;
+import com.netvox.sh.boss.products.service.DataPointService;
 import org.springframework.stereotype.Service;
 
 /**

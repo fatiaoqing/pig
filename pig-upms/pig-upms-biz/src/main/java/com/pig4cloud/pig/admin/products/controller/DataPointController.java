@@ -1,16 +1,17 @@
-package com.pig4cloud.pig.admin.products.controller;
+package com.netvox.sh.boss.products.controller;
 
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.pig4cloud.pig.admin.api.product.entity.DataPoint;
-import com.pig4cloud.pig.admin.products.service.DataPointService;
-import com.pig4cloud.pig.common.core.util.Result;
-import com.pig4cloud.pig.common.log.annotation.SysLog;
+import com.netvox.sh.boss.api.product.entity.DataPoint;
+import com.netvox.sh.boss.products.service.DataPointService;
+import com.netvox.sh.common.core.util.Result;
+import com.netvox.sh.common.log.annotation.SysLog;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -29,6 +30,12 @@ import javax.validation.Valid;
 public class DataPointController {
     private final DataPointService dataPointService;
 
+    /**
+     * 获取功能点模糊查询数据
+     * @param page
+     * @param keyWord
+     * @return Result<Page>
+     */
     @ApiOperation(value = "获取功能点模糊查询数据", httpMethod = "GET")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "keyWord",value = "搜索关键字" ,required = true, dataType = "String", paramType = "body"),
@@ -54,6 +61,7 @@ public class DataPointController {
     })
     @DeleteMapping("/{id}")
     @SysLog("删除特定功能点信息")
+    @PreAuthorize("@pms.hasPermission('product_datapoint_del')")
     public Result<Boolean> delDataPoint(@PathVariable Long id) {
         return Result.ok(dataPointService.removeById(id));
     }
@@ -69,6 +77,7 @@ public class DataPointController {
     })
     @PutMapping("/{id}")
     @SysLog("修改功能点信息")
+    @PreAuthorize("@pms.hasPermission('product_datapoint_edit')")
     public Result<Boolean> updateDataPoint(@Valid @RequestBody DataPoint dataPoint, @PathVariable Long id) {
         return Result.ok(dataPointService.updateById(dataPoint));
     }
@@ -81,6 +90,7 @@ public class DataPointController {
     @ApiOperation(value = "新增功能点信息", httpMethod = "POST")
     @PostMapping
     @SysLog("新增功能点信息")
+    @PreAuthorize("@pms.hasPermission('product_datapoint_add')")
     public Result<Boolean> addDataPoint(@Valid @RequestBody DataPoint dataPoint) {
         return Result.ok(dataPointService.save(dataPoint));
     }

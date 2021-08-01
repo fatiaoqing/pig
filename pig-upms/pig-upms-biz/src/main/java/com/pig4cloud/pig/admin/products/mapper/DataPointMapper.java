@@ -1,7 +1,7 @@
-package com.pig4cloud.pig.admin.products.mapper;
+package com.netvox.sh.boss.products.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.pig4cloud.pig.admin.api.product.entity.DataPoint;
+import com.netvox.sh.boss.api.product.entity.DataPoint;
 import org.apache.ibatis.annotations.Mapper;
 
 /**

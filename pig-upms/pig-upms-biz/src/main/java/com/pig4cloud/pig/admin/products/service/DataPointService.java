@@ -1,7 +1,7 @@
-package com.pig4cloud.pig.admin.products.service;
+package com.netvox.sh.boss.products.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.pig4cloud.pig.admin.api.product.entity.DataPoint;
+import com.netvox.sh.boss.api.product.entity.DataPoint;
 
 /**
  * <p>
